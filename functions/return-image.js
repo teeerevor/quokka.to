@@ -2,6 +2,7 @@ const fetch = require('isomorphic-fetch');
 
 exports.handler = async (event, context) => {
     const { fileURL } = event.queryStringParameters;
+    const thing = 'thing';
 
     let image;
     try {
