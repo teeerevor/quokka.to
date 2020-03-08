@@ -19,9 +19,14 @@ const extraLargeQuokkas = [
 
 exports.handler = async function(event, context) {
     const { path, headers } = event;
-    console.log({ path });
     const [junk, width, height, grey] = path.split('/');
-    const mods = [base_mods, fill_mods, `w_${width}`, `h_${height}`].join(',');
+    if (!parseInt(width) || (height && !parseInt(height))) {
+        return {
+            statusCode: 404,
+            body: 'not a thing',
+        };
+    }
+    const mods = [base_mods, fill_mods, `w_${width}`, `h_${height || width}`].join(',');
     try {
         const response = await fetch(
             `https://res.cloudinary.com/dep74pn0n/image/upload/${mods}/v1583062821/piqsels.com-id-fsmmq_d7hjbv`,
