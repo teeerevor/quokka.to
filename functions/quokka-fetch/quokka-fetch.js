@@ -7,29 +7,48 @@ const imageTypes = {
     webp: 'image/webp',
 };
 const vDunno = 'v1583062821';
-const cloudinary = 'https://res.cloudinary.com/dep74pn0n/image/upload';
+const cloudinaryUrl = 'https://res.cloudinary.com/dep74pn0n/image/upload';
 const base_mods = 'f_auto,q_auto';
 const fill_mods = 'c_fill,g_faces';
-const size_mods = 'h_377,w_508';
 const extraLargeQuokkas = [
     'v1583062821/piqsels.com-id-fsmmq_d7hjbv',
     'v1583062821/piqsels.com-id-fiisq_sootmx',
     'v1583062820/piqsels.com-id-znfzb_agmwys',
 ];
+const QUOKKA_MAP = {
+    one: 'v1583062821/piqsels.com-id-fsmmq_d7hjbv',
+    two: 'v1583062821/piqsels.com-id-fiisq_sootmx',
+    three: 'v1583062820/piqsels.com-id-znfzb_agmwys',
+}
+
+const WIDE = 1.5;
+const TALL = 0.6;
+
+const image = (width, height) => {
+    const aspectRatio = width / height;
+    if(aspectRatio > Tall && aspectRatio <= WIDE)
+        return extraLargeQuokkas[Math.random]
+}
 
 exports.handler = async function(event, context) {
     const { path, headers } = event;
-    const [junk, width, height, grey] = path.split('/');
-    if (!parseInt(width) || (height && !parseInt(height))) {
+    const [junk, widthStr, heightStr, grey] = path.split('/');
+    const width = parseInt(widthStr);
+    const height = parseInt(heightStr);
+    const grey = g === 'g'
+    const imageId = event.queryStringParameters.id;
+    
+    if (!width || (heightStr && !height) || (imageId && !QUOKKA_MAP[imageId]) )
         return {
             statusCode: 404,
             body: 'not a thing',
         };
     }
     const mods = [base_mods, fill_mods, `w_${width}`, `h_${height || width}`].join(',');
+
     try {
         const response = await fetch(
-            `https://res.cloudinary.com/dep74pn0n/image/upload/${mods}/v1583062821/piqsels.com-id-fsmmq_d7hjbv`,
+            `${cloudinaryUrl}${mods}/${image}`,
             {
                 headers: { accept: headers.accept, 'user-agent': headers['user-agent'] },
             },
