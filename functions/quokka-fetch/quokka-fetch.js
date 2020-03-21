@@ -6,36 +6,30 @@ const imageTypes = {
     gif: 'image/gif',
     webp: 'image/webp',
 };
-const vDunno = 'v1583062821';
+
 const cloudinaryUrl = 'https://res.cloudinary.com/dep74pn0n/image/upload';
 const base_mods = 'f_auto,q_auto';
 const fill_mods = 'c_fill,g_faces';
-const extraLargeQuokkas = [
-    'v1583062821/piqsels.com-id-fsmmq_d7hjbv',
-    'v1583062821/piqsels.com-id-fiisq_sootmx',
-    'v1583062820/piqsels.com-id-znfzb_agmwys',
-];
+
 const QUOKKA_MAP = {
-    one: 'v1583062821/piqsels.com-id-fsmmq_d7hjbv',
-    two: 'v1583062821/piqsels.com-id-fiisq_sootmx',
-    three: 'v1583062820/piqsels.com-id-znfzb_agmwys',
+    aimee: {src: 'v1583062821/piqsels.com-id-fsmmq_d7hjbv', maxWidth: 3840, maxHeight: 2160, url:''},
+    barry: {src: 'v1583062821/piqsels.com-id-fiisq_sootmx', maxWidth: 3840, maxHeight: 2160, url: ''}, 
+    charlie: {src: 'v1583062820/piqsels.com-id-znfzb_agmwys', maxWidth: 3888, maxHeight: 2592, url: ''},
+    daisy: {src: 'v1582292211/Quokka_family_wmswbs', maxWidth: 3184, maxHeight: 2376, url: 'https://commons.wikimedia.org/wiki/File:Quokka_family.jpg'},
+    finn: {src: 'v1583062810/8670484575_42befbd867_o_c2dowi', maxWidth: 1200, maxHeight: 1600, url: 'https://www.flickr.com/photos/fraggy/8670484575/', portrait: true},
+    simon: {src: 'v1583062812/46680407785_53d6b13bd4_o_vhh79s', maxWidth: 1280, maxHeight: 960, url: 'https://www.flickr.com/photos/39551170@N02/46680407785'},
+    simon: {src: 'v1582292199/Quokka_Rottnest_Island_uhcdo9', maxWidth: 1280, maxHeight: 960, url: 'https://www.flickr.com/photos/39551170@N02/46680407785'},
 }
 
 const WIDE = 1.5;
 const TALL = 0.6;
 
-const image = (width, height) => {
-    const aspectRatio = width / height;
-    if(aspectRatio > Tall && aspectRatio <= WIDE)
-        return extraLargeQuokkas[Math.random]
-}
-
 exports.handler = async function(event, context) {
     const { path, headers } = event;
-    const [junk, widthStr, heightStr, grey] = path.split('/');
+    const [junk, widthStr, heightStr, greyStr] = path.split('/');
     const width = parseInt(widthStr);
     const height = parseInt(heightStr);
-    const grey = g === 'g'
+    const grey = greyStr === 'g'
     const imageId = event.queryStringParameters.id;
     
     if (!width || (heightStr && !height) || (imageId && !QUOKKA_MAP[imageId]) )
@@ -48,7 +42,8 @@ exports.handler = async function(event, context) {
 
     try {
         const response = await fetch(
-            `${cloudinaryUrl}${mods}/${image}`,
+            // `${cloudinaryUrl}${mods}/${QUOKKA_MAP[Math.floor(Math.random() * Object.keys(QUOKKA_MAP).length)].src}`,
+            `${cloudinaryUrl}${mods}/${QUOKKA_MAP['simon'].src}`,
             {
                 headers: { accept: headers.accept, 'user-agent': headers['user-agent'] },
             },
