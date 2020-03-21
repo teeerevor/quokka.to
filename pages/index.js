@@ -1,7 +1,6 @@
 import Grid from '~/components/grid';
 import { Medium, Tall, Large, Small, Wide } from '~/components/gridItems';
 import Card from '~/components/card';
-import quokkas from './homepageQuokkas';
 
 const sizeMap = {
     small: { Component: Small, width: 508, height: 377 },
@@ -10,6 +9,23 @@ const sizeMap = {
     tall: { Component: Tall, width: 508, height: 800 },
     wide: { Component: Wide, width: 1016, height: 377 },
 };
+
+const topHomeQuokkas = [
+    'tall',
+    'medium',
+    'small',
+    'small',
+    'medium',
+    'small',
+    'small',
+    'medium',
+    'medium',
+    'small',
+    'small',
+    'small',
+    'small',
+    'large',
+];
 
 const Item = ({ Component, width, height }) => (
     <Component>
@@ -46,7 +62,7 @@ export default () => (
             <p>Grey</p>
             <a href="https://quok.in/500/g">https://quok.in/200/300</a> */}
         </Card>
-        {quokkas.map(quok => (
+        {topHomeQuokkas.map(quok => (
             <Item key={Math.random() * 1000} {...sizeMap[quok]} />
         ))}
         <QuakkaFiller />

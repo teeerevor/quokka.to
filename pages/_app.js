@@ -1,7 +1,7 @@
 import App from 'next/app';
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import GlobalStyles from './globalStyles';
+import GlobalStyles from '~/components/globalStyles';
 
 const theme = {};
 
