@@ -8,6 +8,14 @@ export default styled.div`
     text-align: center;
     grid-column: span 2;
     grid-row: span 4;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 682px) {
+        grid-row: span 1 !important;
+        grid-column: 1 / -1 !important;
+    }
 
     & a {
         background-color: rgba(0, 0, 0, 0.08);

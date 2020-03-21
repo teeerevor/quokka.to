@@ -1,0 +1,16 @@
+export default [
+    'tall',
+    'medium',
+    'small',
+    'small',
+    'medium',
+    'small',
+    'small',
+    'medium',
+    'medium',
+    'small',
+    'small',
+    'small',
+    'small',
+    'large',
+];
