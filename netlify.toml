@@ -1,0 +1,9 @@
+[build]
+  command = "#"
+  functions = "functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/quokka-fetch"
+  status = 200
+
