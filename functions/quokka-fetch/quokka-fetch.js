@@ -44,10 +44,10 @@ const QUOKKA_MAP = {
 
 exports.handler = async function(event, context) {
     const { path, headers } = event;
-    const [junk, widthStr, heightStr, gStr] = path.split('/');
+    const [widthStr, heightStr] = path.split('/').filter(x => parseInt(x));
+    const grey = path.split('/').filter(x => x === 'g').length > 0;
     const width = parseInt(widthStr);
     const height = parseInt(heightStr);
-    const grey = gStr === 'g';
     const imageId = event.queryStringParameters.id;
 
     if (!width || (heightStr && !height) || (imageId && !QUOKKA_MAP[imageId])) {
@@ -59,7 +59,7 @@ exports.handler = async function(event, context) {
     const mods = [base_mods, fill_mods, `w_${width}`, `h_${height || width}`].filter(Boolean).join(',');
 
     try {
-        const quokkaKey = Object.keys(QUOKKA_MAP)[(width + height) % Object.keys(QUOKKA_MAP).length];
+        const quokkaKey = imageId || Object.keys(QUOKKA_MAP)[(width + height) % Object.keys(QUOKKA_MAP).length];
         const url = `${cloudinaryUrl}/${mods}/${QUOKKA_MAP[quokkaKey].src}`;
         const response = await fetch(url, {
             headers: { accept: headers.accept, 'user-agent': headers['user-agent'] },
