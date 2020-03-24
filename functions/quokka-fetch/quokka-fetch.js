@@ -15,7 +15,7 @@ const QUOKKA_MAP = {
     aimee: { src: 'v1583062821/piqsels.com-id-fsmmq_d7hjbv', maxWidth: 3840, maxHeight: 2160, url: '' },
     barry: { src: 'v1583062821/piqsels.com-id-fiisq_sootmx', maxWidth: 3840, maxHeight: 2160, url: '' },
     charlie: { src: 'v1583062820/piqsels.com-id-znfzb_agmwys', maxWidth: 3888, maxHeight: 2592, url: '' },
-    daisy: {
+    daisydarrelanddemi: {
         src: 'v1582292211/Quokka_family_wmswbs',
         maxWidth: 3184,
         maxHeight: 2376,
@@ -41,12 +41,12 @@ const QUOKKA_MAP = {
         url: 'https://commons.wikimedia.org/wiki/Category:Setonix_brachyurus#/media/File:Quokka_at_rottnest.jpg',
     },
     harry: {
-        src: 'v1584968004/Quokka_q7yvpm.jpg',
+        src: 'v1584968004/Quokka_q7yvpm',
         maxWidth: 1704,
         maxHeight: 2272,
         url: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Quokka.jpg',
     },
-    ivy: {
+    ivyandisla: {
         src: 'v1584969287/5661728684332708_ibefii',
         maxWidth: 1536,
         maxHeight: 1542,
@@ -54,7 +54,7 @@ const QUOKKA_MAP = {
             'https://www.watson.ch/u/zoom?url=%2Fimgdb%2Fd211%2FQx%2CB%2C0%2C0%2C721%2C724%2C300%2C301%2C120%2C120%2F5661728684332708&source=Bild%3A%20Imgur&caption=',
     },
     jack: {
-        src: 'v1584969822/Quokka_selfie_vuwvwu.jpg',
+        src: 'v1584969822/Quokka_selfie_vuwvwu',
         maxWidth: 1280,
         maxHeight: 960,
         url: 'https://commons.wikimedia.org/wiki/Category:Setonix_brachyurus#/media/File:Quokka_selfie.jpg',

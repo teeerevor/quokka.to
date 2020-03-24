@@ -2,6 +2,9 @@
   command = "next build && next export"
   functions = "./functions"
 
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/quokka-fetch"

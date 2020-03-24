@@ -2,6 +2,8 @@ import Grid from '~/components/grid';
 import { Medium, Tall, Large, Small, Wide } from '~/components/gridItems';
 import Card from '~/components/card';
 
+const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:8888/' : 'https://quok.in/';
+
 const sizeMap = {
     small: { Component: Small, width: 508, height: 377 },
     medium: { Component: Medium, width: 508, height: 377 },
@@ -10,28 +12,33 @@ const sizeMap = {
     wide: { Component: Wide, width: 1016, height: 377 },
 };
 
+const tall = ['harry', 'esme', 'finn'];
+
 const topHomeQuokkas = [
-    'tall',
-    'medium',
-    'small',
-    'small',
-    'medium',
-    'small',
-    'small',
-    'medium',
-    'medium',
-    'small',
-    'small',
-    'small',
-    'small',
-    'large',
+    { variant: 'tall', name: 'ivyandisla' },
+    { variant: 'medium', name: 'aimee' },
+    { variant: 'small', name: 'barry' },
+    { variant: 'small', name: 'charlie' },
+    { variant: 'medium', name: 'thomas' },
+    { variant: 'small', name: 'gregor' },
+    { variant: 'small', name: 'finn' },
+    { variant: 'medium', name: 'esme' },
+    { variant: 'medium', name: 'harry' },
+    { variant: 'small', name: 'ivyandisla' },
+    { variant: 'small', name: 'jack' },
+    { variant: 'small', name: 'katie' },
+    { variant: 'small', name: 'simon' },
+    { variant: 'large', name: 'daisydarrelanddemi' },
 ];
 
-const Item = ({ Component, width, height }) => (
-    <Component>
-        <img src={`https://quok.in/${width}/${height}`} />
-    </Component>
-);
+const Item = ({ Component, width, height, name }) => {
+    const url = name ? `${BASE_URL}${width}/${height}?id=${name}` : `${BASE_URL}${width}/${height}`;
+    return (
+        <Component>
+            <img src={url} />
+        </Component>
+    );
+};
 
 const QuakkaFiller = () => (
     <>
@@ -52,7 +59,7 @@ export default () => (
         <Card>
             <h1>Quokkas</h1>
             <p>All shapes and sizes</p>
-            <a href="https://quok.in/200/300">https://quok.in/200/300</a>
+            <a href={`${BASE_URL}200/300`}>https://quok.in/200/300</a>
             {/* <p>Squares</p>
             <a href="https://quok.in/200/300">https://quok.in/200/300</a>
             <p>Tall</p>
@@ -62,8 +69,8 @@ export default () => (
             <p>Grey</p>
             <a href="https://quok.in/500/g">https://quok.in/200/300</a> */}
         </Card>
-        {topHomeQuokkas.map(quok => (
-            <Item key={Math.random() * 1000} {...sizeMap[quok]} />
+        {topHomeQuokkas.map(({ variant, name }) => (
+            <Item key={Math.random() * 1000} {...sizeMap[variant]} name={name} />
         ))}
         <QuakkaFiller />
     </Grid>
