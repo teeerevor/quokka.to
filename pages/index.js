@@ -1,9 +1,13 @@
 import Grid from '~/components/grid';
 import { Medium, Tall, Large, Small, Wide } from '~/components/gridItems';
 import Card from '~/components/card';
+import quokkas from '~/functions/quokka-fetch/quokkas';
 
 const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:8888/' : 'https://quok.in/';
 
+const tall = Object.keys(quokkas).filter(key => quokkas[key].tall);
+const wide = Object.keys(quokkas).filter(key => quokkas[key].wide);
+const reg = Object.keys(quokkas).filter(key => !quokkas[key].tall);
 const sizeMap = {
     small: { Component: Small, width: 508, height: 377 },
     medium: { Component: Medium, width: 508, height: 377 },
@@ -12,27 +16,26 @@ const sizeMap = {
     wide: { Component: Wide, width: 1016, height: 377 },
 };
 
-const tall = ['harry', 'esme', 'finn'];
-
 const topHomeQuokkas = [
-    { variant: 'tall', name: 'ivyandisla' },
+    { variant: 'tall', name: 'duo' },
     { variant: 'medium', name: 'aimee' },
     { variant: 'small', name: 'barry' },
-    { variant: 'small', name: 'charlie' },
+    { variant: 'small', name: 'trio' },
     { variant: 'medium', name: 'thomas' },
     { variant: 'small', name: 'gregor' },
-    { variant: 'small', name: 'finn' },
-    { variant: 'medium', name: 'esme' },
-    { variant: 'medium', name: 'harry' },
-    { variant: 'small', name: 'ivyandisla' },
-    { variant: 'small', name: 'jack' },
-    { variant: 'small', name: 'katie' },
+    { variant: 'small', name: 'oli' },
+    { variant: 'medium', name: 'mark' },
+    { variant: 'medium', name: 'suzy' },
+    { variant: 'small', name: 'duo' },
+    { variant: 'small', name: 'jason' },
+    { variant: 'small', name: 'ivy' },
     { variant: 'small', name: 'simon' },
-    { variant: 'large', name: 'daisydarrelanddemi' },
+    { variant: 'large', name: 'trio' },
 ];
 
-const Item = ({ Component, width, height, name }) => {
-    const url = name ? `${BASE_URL}${width}/${height}?id=${name}` : `${BASE_URL}${width}/${height}`;
+const Item = ({ Component, width, height, name, quokkas }) => {
+    const quokka = quokkas && quokkas[Math.floor(Math.random() * quokkas.length)];
+    const url = name || quokka ? `${BASE_URL}${width}/${height}?id=${name || quokka}` : `${BASE_URL}${width}/${height}`;
     return (
         <Component>
             <img src={url} />
