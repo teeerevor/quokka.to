@@ -8,12 +8,13 @@ const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:8888
 const tall = Object.keys(quokkas).filter(key => quokkas[key].tall);
 const wide = Object.keys(quokkas).filter(key => quokkas[key].wide);
 const reg = Object.keys(quokkas).filter(key => !quokkas[key].tall);
+
 const sizeMap = {
-    small: { Component: Small, width: 508, height: 377 },
-    medium: { Component: Medium, width: 508, height: 377 },
-    large: { Component: Large, width: 1157, height: 858 },
-    tall: { Component: Tall, width: 508, height: 800 },
-    wide: { Component: Wide, width: 1016, height: 377 },
+    small: { Component: Small, width: 290, height: 222, quokkas: reg },
+    medium: { Component: Medium, width: 622, height: 490, quokkas: reg },
+    large: { Component: Large, width: 1157, height: 930 },
+    tall: { Component: Tall, width: 622, height: 1032, quokkas: tall },
+    wide: { Component: Wide, width: 1016, height: 377, quokkas: wide },
 };
 
 const topHomeQuokkas = [
