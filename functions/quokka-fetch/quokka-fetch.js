@@ -1,32 +1,27 @@
 const fetch = require('node-fetch');
 const quokkas = require('./quokkas');
 
-const imageTypes = {
-    jpg: 'image/jpeg',
-    png: 'image/jpeg',
-    gif: 'image/gif',
-    webp: 'image/webp',
-};
-
 const cloudinaryUrl = 'https://res.cloudinary.com/dep74pn0n/image/upload';
-const base_mods = 'f_auto,q_auto';
-const fill_mods = 'c_fill,g_faces';
+const baseMods = 'f_auto,q_auto';
+const fillMods = 'c_fill,g_faces';
+const nameRegx = new RegExp(Object.keys(quokkas).join('|'));
 
-exports.handler = async function(event, context) {
+exports.handler = async function(event) {
     const { path, headers } = event;
-    const [widthStr, heightStr] = path.split('/').filter(x => parseInt(x));
-    const grey = path.split('/').filter(x => x === 'g').length > 0;
+    const split = path.split('/');
+    const [widthStr, heightStr] = split.filter(x => parseInt(x));
+    const grey = split.filter(x => x === 'g').length > 0 ? 'e_grayscale' : null;
+    const [imageId] = nameRegx.exec(path) || [];
     const width = parseInt(widthStr);
-    const height = parseInt(heightStr);
-    const imageId = event.queryStringParameters.id;
+    const height = parseInt(heightStr) || width;
 
-    if (!width || (heightStr && !height) || (imageId && !quokkas[imageId])) {
+    if (!width || (imageId && !quokkas[imageId])) {
         return {
             statusCode: 404,
             body: 'not a thing',
         };
     }
-    const mods = [base_mods, fill_mods, `w_${width}`, `h_${height || width}`].filter(Boolean).join(',');
+    const mods = [baseMods, fillMods, `w_${width}`, `h_${height}`, grey].filter(Boolean).join(',');
 
     try {
         const quokkaKey = imageId || Object.keys(quokkas)[(width + height) % Object.keys(quokkas).length];
