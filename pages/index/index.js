@@ -6,7 +6,6 @@ import { quokkaUrl } from '~/utils/urlHelpers';
 import { sizeMap } from './sizes';
 import Item from './item';
 import QuokkaFiller from './quokkaFiller';
-import topHomeQuokkas from './topHomeQuokkas';
 
 const InfoPanel = styled.div`
     position: absolute;
@@ -40,6 +39,23 @@ const Example = ({ url, heading }) => (
         </Cell>
     </tr>
 );
+
+const topHomeQuokkas = [
+    { variant: 'tall', name: 'duo' },
+    { variant: 'medium', name: 'aimee' },
+    { variant: 'small', name: 'barry' },
+    { variant: 'small', name: 'trio' },
+    { variant: 'medium', name: 'thomas' },
+    { variant: 'small', name: 'gregor' },
+    { variant: 'small', name: 'oli' },
+    { variant: 'medium', name: 'mark' },
+    { variant: 'medium', name: 'suzy' },
+    { variant: 'small', name: 'duo' },
+    { variant: 'small', name: 'jason' },
+    { variant: 'small', name: 'ivy' },
+    { variant: 'small', name: 'simon' },
+    { variant: 'large', name: 'trio' },
+];
 
 const HomePage = () => (
     <Home>
