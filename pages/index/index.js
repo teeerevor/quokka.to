@@ -3,7 +3,8 @@ import Grid from '~/components/grid';
 import Card from '~/components/card';
 import DisplayLink from '~/components/displayLink';
 import { quokkaUrl } from '~/utils/urlHelpers';
-import { sizeMap } from './sizes';
+import { sizeMap } from '~/data/sizes';
+import topHomeQuokkas from '~/data/topHomeQuokkas';
 import Item from './item';
 import QuokkaFiller from './quokkaFiller';
 
@@ -39,23 +40,6 @@ const Example = ({ url, heading }) => (
         </Cell>
     </tr>
 );
-
-const topHomeQuokkas = [
-    { variant: 'tall', name: 'duo' },
-    { variant: 'medium', name: 'aimee' },
-    { variant: 'small', name: 'barry' },
-    { variant: 'small', name: 'trio' },
-    { variant: 'medium', name: 'thomas' },
-    { variant: 'small', name: 'gregor' },
-    { variant: 'small', name: 'oli' },
-    { variant: 'medium', name: 'mark' },
-    { variant: 'medium', name: 'suzy' },
-    { variant: 'small', name: 'duo' },
-    { variant: 'small', name: 'jason' },
-    { variant: 'small', name: 'ivy' },
-    { variant: 'small', name: 'simon' },
-    { variant: 'large', name: 'trio' },
-];
 
 const HomePage = () => (
     <Home>

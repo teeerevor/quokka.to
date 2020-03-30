@@ -1,4 +1,4 @@
-import { sizeMap } from './sizes';
+import { sizeMap } from '~/data/sizes';
 import Item from './item';
 
 export default () => (
