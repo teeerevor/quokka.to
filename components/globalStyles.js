@@ -38,6 +38,19 @@ h1 {
     margin: 0;
     margin-bottom: var(--size6);
 }
+
+h2 {
+    text-transform: uppercase;
+    font-size: var(--size7);
+    font-weight: 144;
+    letter-spacing: 2px;
+}
+h4 {
+    font-size: var(--size6);
+    font-weight: 144;
+    letter-spacing: 2px;
+}
+
 p {
     font-weight: 300;
     margin-bottom: var(--size6);

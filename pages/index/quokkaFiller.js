@@ -3,7 +3,7 @@ import Item from './item';
 
 export default () => (
     <>
-        {[...new Array(100)].map((quok, index) => {
+        {[...new Array(80)].map((quok, index) => {
             const size =
                 index !== 0 && index % 13 === 0
                     ? ['tall', 'wide', 'large'][Math.floor(Math.random() * 3)]

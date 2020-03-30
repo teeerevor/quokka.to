@@ -16,17 +16,4 @@ export default styled.div`
         grid-row: span 1 !important;
         grid-column: 1 / -1 !important;
     }
-
-    & a {
-        background-color: rgba(0, 0, 0, 0.08);
-        padding: var(--size6);
-        border-radius: 2px;
-        display: block;
-        color: #26268e;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 `;
