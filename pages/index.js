@@ -5,8 +5,8 @@ import DisplayLink from '~/components/displayLink';
 import { quokkaUrl } from '~/utils/urlHelpers';
 import { sizeMap } from '~/data/sizes';
 import topHomeQuokkas from '~/data/topHomeQuokkas';
-import Item from './item';
-import QuokkaFiller from './quokkaFiller';
+import ImageItem from '~/components/imageItem';
+import QuokkaFiller from '~/components/quokkaFiller';
 
 const InfoPanel = styled.div`
     position: absolute;
@@ -50,7 +50,7 @@ const HomePage = () => (
                 <DisplayLink href={quokkaUrl({ width: 200, height: 300 })}>https://quok.in/200/300</DisplayLink>
             </Card>
             {topHomeQuokkas.map(({ variant, name }) => (
-                <Item key={Math.random() * 1000} {...sizeMap[variant]} name={name} />
+                <ImageItem key={Math.random() * 1000} {...sizeMap[variant]} name={name} />
             ))}
             <QuokkaFiller />
         </Grid>

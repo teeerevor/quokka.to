@@ -1,5 +1,5 @@
 import { sizeMap } from '~/data/sizes';
-import Item from './item';
+import ImageItem from './imageItem';
 
 export default () => (
     <>
@@ -10,7 +10,7 @@ export default () => (
                     : Math.random() >= 0.4
                     ? 'medium'
                     : 'small';
-            return <Item key={Math.random() * 1000} {...sizeMap[size]} />;
+            return <ImageItem key={Math.random() * 1000} {...sizeMap[size]} />;
         })}
     </>
 );
