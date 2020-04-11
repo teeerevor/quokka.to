@@ -92,6 +92,7 @@ const quokkas = {
         maxWidth: 1280,
         maxHeight: 960,
         url: 'https://commons.wikimedia.org/wiki/Category:Setonix_brachyurus#/media/File:Quokka_selfie',
+        selfie: true,
     },
     poppy: {
         src: 'v1585394875/43140261584_d95646cdd3_4k_toek77',
@@ -119,6 +120,7 @@ const quokkas = {
         maxWidth: 1280,
         maxHeight: 960,
         url: 'https://www.flickr.com/photos/39551170@N02/46680407785',
+        selfie: true,
     },
     sophie: {
         src: 'v1585224237/41814318521_ec6d9ae5ff_o_svio0c',

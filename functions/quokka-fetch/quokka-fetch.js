@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
 const useragent = require('useragent');
-const quokkas = require('./quokkas');
+const quokkaList = require('./quokkas');
 
 const cloudinaryUrl = 'https://res.cloudinary.com/dep74pn0n/image/upload';
 const baseMods = 'q_auto';
 const fillMods = 'c_fill,g_faces';
-const nameRegx = new RegExp(Object.keys(quokkas).join('|'));
+const nameRegx = new RegExp(Object.keys(quokkaList).join('|'));
 
 const formatMap = {
     chrome: 'webp',
@@ -19,24 +19,32 @@ exports.handler = async function (event) {
     const split = path.split('/');
     const [widthStr, heightStr] = split.filter((x) => parseInt(x, 10));
     const grey = split.filter((x) => x === 'g').length > 0 ? 'e_grayscale' : null;
+    const noSelfies = split.filter((x) => x === 'noselfies').length > 0;
+    const selfies = split.filter((x) => x === 'selfies').length > 0 && !noSelfies;
+
+    let quokkaKeys = Object.keys(quokkaList);
+    if (selfies) quokkaKeys = Object.keys(quokkaList).filter((key) => quokkaList[key].selfie);
+    if (noSelfies) quokkaKeys = Object.keys(quokkaList).filter((key) => !quokkaList[key].selfie);
+
     const [imageId] = nameRegx.exec(path) || [];
     const width = parseInt(widthStr, 10);
     const height = parseInt(heightStr, 10) || width;
-    const agents = useragent.is(headers['user-agent']);
-    const [agent] = Object.keys(agents).filter((key) => agents[key] === true);
-    const format = formatMap[agent] || 'jpg';
 
-    if (!width || (imageId && !quokkas[imageId])) {
+    if (!width || (imageId && !quokkaKeys.includes(imageId))) {
         return {
             statusCode: 404,
             body: 'not a thing',
         };
     }
+
+    const agents = useragent.is(headers['user-agent']);
+    const [agent] = Object.keys(agents).filter((key) => agents[key] === true);
+    const format = formatMap[agent] || 'jpg';
     const mods = [`w_${width}`, `h_${height}`, grey, baseMods, fillMods].filter(Boolean).join(',');
 
     try {
-        const quokkaKey = imageId || Object.keys(quokkas)[(width + height) % Object.keys(quokkas).length];
-        const url = `${cloudinaryUrl}/${mods}/${quokkas[quokkaKey].src}.${format}`;
+        const quokkaKey = imageId || quokkaKeys[(width + height) % quokkaKeys.length];
+        const url = `${cloudinaryUrl}/${mods}/${quokkaList[quokkaKey].src}.${format}`;
         const response = await fetch(url);
         const image = await response.buffer();
         return {
