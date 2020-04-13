@@ -23,8 +23,8 @@ exports.handler = async function (event) {
     const selfies = split.filter((x) => x === 'selfies').length > 0 && !noSelfies;
 
     let quokkaKeys = Object.keys(quokkaList);
-    if (selfies) quokkaKeys = Object.keys(quokkaList).filter((key) => quokkaList[key].selfie);
-    if (noSelfies) quokkaKeys = Object.keys(quokkaList).filter((key) => !quokkaList[key].selfie);
+    if (selfies) quokkaKeys = quokkaKeys.filter((key) => quokkaList[key].selfie);
+    if (noSelfies) quokkaKeys = quokkaKeys.filter((key) => !quokkaList[key].selfie);
 
     const [imageId] = nameRegx.exec(path) || [];
     const width = parseInt(widthStr, 10);

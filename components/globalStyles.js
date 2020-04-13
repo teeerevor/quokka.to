@@ -25,8 +25,10 @@ export default createGlobalStyle`
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    background-color: fafbfc;
-    padding: var(--size4);
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
 }
 
 h1 {
@@ -34,7 +36,7 @@ h1 {
     letter-spacing: var(--size3);
     font-size: var(--size8);
     font-weight: 20;
-    letter-spacing: -0.38px;
+    letter-spacing: var(--size2);
     margin: 0;
     margin-bottom: var(--size6);
 }

@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 import { quokkaUrl } from '~/utils/urlHelpers';
+import { sizeMap } from '~/data/sizes';
 
 const Image = styled.img`
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
-export default ({ Component, width, height, g, name, quokkas }) => {
-    const quokka = quokkas && quokkas[Math.floor(Math.random() * quokkas.length)];
-    const qName = name || quokka;
-    const alt = qName ? `a quokka named ${qName}` : 'quokka doing quoking things';
+export default ({ variant, name, display }) => {
+    const { Component, width, height, g, quokkaNames } = sizeMap[variant] || {};
+    const quokkaName = quokkaNames && quokkaNames[Math.floor(Math.random() * quokkaNames.length)];
+    const quokka = name || quokkaName;
+    const alt = quokka ? `a quokka named ${quokka}` : 'quokka doing quokking things';
     return (
-        <Component>
-            <Image src={quokkaUrl({ width, height, g, name: name || quokka })} alt={alt} />
+        <Component sx={{ display }}>
+            <Image src={quokkaUrl({ width, height, g, name: quokka })} alt={alt} />
         </Component>
     );
 };

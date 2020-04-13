@@ -1,41 +1,69 @@
-import styled from 'styled-components';
+import { Box } from 'rebass/styled-components';
 
-export const Medium = styled.div`
-    grid-column: span 2;
-    grid-row: span 2;
+export const Medium = ({ sx, ...props }) => (
+    <Box
+        {...props}
+        sx={{
+            gridRow: 'span 1',
+            gridColumn: '1 / -1',
+            '@media screen and (min-width: 682px)': {
+                gridColumn: 'span 2',
+                gridRow: 'span 2',
+            },
+            ...sx,
+        }}
+    />
+);
 
-    & img {
-        width: 100%;
-        height: auto;
-        border-radius: 2px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+export const Small = ({ sx, ...props }) => (
+    <Box
+        {...props}
+        sx={{
+            '@media screen and (min-width: 682px)': {
+                gridColumn: 'span 1',
+                gridRow: 'span 1',
+            },
+            '@media screen and (max-width: 682px)': {
+                display: 'none',
+            },
+            ...sx,
+        }}
+    />
+);
 
-    @media (max-width: 682px) {
-        grid-row: span 1 !important;
-        grid-column: 1 / -1 !important;
-    }
-`;
+export const Tall = (props) => (
+    <Medium
+        {...props}
+        sx={{
+            '@media screen and (min-width: 682px)': {
+                gridColumn: 'span 2',
+                gridRow: 'span 4',
+            },
+        }}
+    />
+);
 
-export const Small = styled(Medium)`
-    grid-column: span 1;
-    grid-row: span 1;
+export const Wide = (props) => (
+    <Medium
+        {...props}
+        sx={{
+            '@media screen and (min-width: 682px)': {
+                gridColumn: 'span 4',
+                gridRow: 'span 2',
+            },
+        }}
+    />
+);
 
-    @media (max-width: 682px) {
-        display: none;
-    }
-`;
-
-export const Tall = styled(Medium)`
-    grid-column: span 2;
-    grid-row: span 4;
-`;
-export const Wide = styled(Medium)`
-    grid-column: span 4;
-    grid-row: span 2;
-`;
-
-export const Large = styled(Medium)`
-    grid-column: span 4;
-    grid-row: span 4;
-`;
+export const Large = ({ sx, ...props }) => (
+    <Medium
+        {...props}
+        sx={{
+            '@media screen and (min-width: 682px)': {
+                gridColumn: 'span 4',
+                gridRow: 'span 4',
+            },
+            ...sx,
+        }}
+    />
+);
