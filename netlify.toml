@@ -6,6 +6,11 @@
   NODE_ENV = "development"
 
 [[redirects]]
+  from = "/"
+  to = "/"
+  status = 200
+
+[[redirects]]
   from = "/meet-the-quokkas"
   to = "/meet-the-quokkas"
   status = 200
