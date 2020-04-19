@@ -15,7 +15,9 @@
     "license": "ISC",
     "dependencies": {
         "next": "^9.3.0",
+        "next-compose-plugins": "^2.2.0",
         "next-eslint": "0.0.4",
+        "next-optimized-images": "^2.5.8",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "rebass": "^4.0.7",
