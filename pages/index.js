@@ -27,7 +27,7 @@ const Cell = styled.td`
 const Example = ({ url, heading, meet }) => (
     <tr>
         <Cell right>
-            <img src={url} alt={`${heading} Quokka`} />
+            <img src={url} alt={`${heading} Quokka`} loading="lazy" />
         </Cell>
         <Cell>
             <h4>{heading}</h4>

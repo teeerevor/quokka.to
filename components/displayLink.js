@@ -5,7 +5,7 @@ export default styled.a`
     padding: var(--size6);
     border-radius: 2px;
     display: block;
-    color: #26268e;
+    color: #002f8b;
     text-decoration: none;
 
     &:hover {

@@ -92,6 +92,7 @@ export default () => (
                         <img
                             src={quokkaUrl({ width: 500, name: key })}
                             alt={['duo', 'trio'].includes(key) ? `a ${key} of quokkas` : `${key} the quokka`}
+                            loading="lazy"
                         />
                         <Card>
                             <Name>{key}</Name>
