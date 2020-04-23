@@ -14,6 +14,18 @@ const formatMap = {
     ie: 'wdp',
 };
 
+const filteredHeader = (headers) => {
+    const bin = ['host'];
+    return Object.keys(headers)
+        .filter((key) => !bin.includes(key))
+        .reduce((obj, key) => {
+            return {
+                ...obj,
+                [key]: headers[key],
+            };
+        }, {});
+};
+
 exports.handler = async function (event) {
     const { path, headers } = event;
     const split = path.split('/');
@@ -42,10 +54,11 @@ exports.handler = async function (event) {
     const format = formatMap[agent] || 'jpg';
     const mods = [`w_${width}`, `h_${height}`, grey, baseMods, fillMods].filter(Boolean).join(',');
 
+    console.log({ headers });
     try {
         const quokkaKey = imageId || quokkaKeys[(width + height) % quokkaKeys.length];
         const url = `${cloudinaryUrl}/${mods}/${quokkaList[quokkaKey].src}.${format}`;
-        const response = await fetch(url);
+        const response = await fetch(url, { headers: filteredHeader(headers) });
         const image = await response.buffer();
         return {
             statusCode: 200,
