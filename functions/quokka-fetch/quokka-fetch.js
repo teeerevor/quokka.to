@@ -54,7 +54,6 @@ exports.handler = async function (event) {
     const format = formatMap[agent] || 'jpg';
     const mods = [`w_${width}`, `h_${height}`, grey, baseMods, fillMods].filter(Boolean).join(',');
 
-    console.log({ headers });
     try {
         const quokkaKey = imageId || quokkaKeys[(width + height) % quokkaKeys.length];
         const url = `${cloudinaryUrl}/${mods}/${quokkaList[quokkaKey].src}.${format}`;
