@@ -37,7 +37,9 @@ export const Tall = (props) => (
     <Medium
         {...props}
         sx={{
-            minHeight: 520,
+            img: {
+                minHeight: 520,
+            },
             '@media screen and (min-width: 682px)': {
                 gridColumn: 'span 2',
                 gridRow: 'span 4',

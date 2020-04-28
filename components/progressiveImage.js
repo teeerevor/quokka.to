@@ -21,7 +21,7 @@ const ProgressiveImage = ({ preview, src, alt, style }) => {
             style={{
                 ...style,
                 transition: '0.5s filter linear',
-                filter: isLoading ? 'blur(21px)' : '',
+                filter: isLoading ? 'blur(11px)' : '',
                 display: 'block',
             }}
             src={isLoading ? preview : src}

@@ -11,10 +11,9 @@ export default ({ variant, name, display }) => {
     const preview = quokkaPreviewsMap[quokkaName];
     const ImageComponent = !!preview ? ProgressiveImage : Image;
     const src = quokkaUrl({ width, height, g, name: quokkaName });
-    if (!name) console.log({ image: true, quokkaName, src });
     return (
         <Component sx={{ display }}>
-            <ImageComponent src={src} alt={alt} preview={preview || null} style={{}} />
+            <ImageComponent src={src} alt={alt} preview={preview || null} />
         </Component>
     );
 };
