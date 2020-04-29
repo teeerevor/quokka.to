@@ -28,7 +28,8 @@ const filteredHeader = (headers) => {
 
 exports.handler = async function (event) {
     const { path, headers } = event;
-    const split = path.split('/');
+    const [file, ext] = path.split('.');
+    const split = file.split('/');
     const [widthStr, heightStr] = split.filter((x) => parseInt(x, 10));
     const grey = split.filter((x) => x === 'g').length > 0 ? 'e_grayscale' : null;
     const noSelfies = split.filter((x) => x === 'noselfies').length > 0;
@@ -42,7 +43,7 @@ exports.handler = async function (event) {
     const width = parseInt(widthStr, 10);
     const height = parseInt(heightStr, 10) || width;
 
-    if (!width || (imageId && !quokkaKeys.includes(imageId))) {
+    if (!width || (ext && !['jpg', 'webp', 'gif', 'wdp'].includes(ext)) || (imageId && !quokkaKeys.includes(imageId))) {
         return {
             statusCode: 404,
             body: 'not a thing',
@@ -51,7 +52,7 @@ exports.handler = async function (event) {
 
     const agents = useragent.is(headers['user-agent']);
     const [agent] = Object.keys(agents).filter((key) => agents[key] === true);
-    const format = formatMap[agent] || 'jpg';
+    const format = ext || formatMap[agent] || 'jpg';
     const mods = [`w_${width}`, `h_${height}`, grey, baseMods, fillMods].filter(Boolean).join(',');
 
     try {
