@@ -28,8 +28,8 @@ const filteredHeader = (headers) => {
 
 exports.handler = async function (event) {
     const { path, headers } = event;
-    const [file, ext] = path.split('.');
-    const split = file.split('/');
+    const [file, ext] = path.includes('.netlify') ? [] : path.split('.');
+    const split = path.split('/');
     const [widthStr, heightStr] = split.filter((x) => parseInt(x, 10));
     const grey = split.filter((x) => x === 'g').length > 0 ? 'e_grayscale' : null;
     const noSelfies = split.filter((x) => x === 'noselfies').length > 0;
@@ -43,6 +43,7 @@ exports.handler = async function (event) {
     const width = parseInt(widthStr, 10);
     const height = parseInt(heightStr, 10) || width;
 
+    console.log({ file, ext, path: path.split('.') });
     if (!width || (ext && !['jpg', 'webp', 'gif', 'wdp'].includes(ext)) || (imageId && !quokkaKeys.includes(imageId))) {
         return {
             statusCode: 404,
