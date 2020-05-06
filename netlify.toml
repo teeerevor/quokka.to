@@ -12,3 +12,8 @@
     public, 
     max-age=604800, 
     immutable'''
+
+[[redirects]]
+  from = "/:width/*"
+  to = "/.netlify/functions/quokka-fetch"
+  status = 200
