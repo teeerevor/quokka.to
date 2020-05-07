@@ -5,6 +5,8 @@ import path from 'path';
 import { sizeMap } from '../data/sizes';
 
 const formats = ['jpg', 'webp'];
+const site = 'http://quok.in';
+// const site = 'http://localhost:8888';
 
 const storeImage = (url, filePath, format) => {
     axios
@@ -31,7 +33,7 @@ const storeImage = (url, filePath, format) => {
 const previews = {};
 
 const generateImage = (width, height, name, format, filePath) => {
-    const url = `http://localhost:8888/${width}/${height}/${name}.${format}`;
+    const url = `${site}/${width}/${height}/${name}.${format}`;
     const file =
         filePath || path.join(__dirname, '..', 'public', width.toString(), height.toString(), `${name}.${format}`);
     if (!fs.existsSync(file)) storeImage(url, file, format);
@@ -45,14 +47,21 @@ Object.keys(sizeMap).forEach((sizeKey) => {
         });
         if (['medium', 'tall', 'wide'].includes(sizeKey)) {
             const previewKey = `${quokka}-${sizeKey}`;
-            generateImage(
-                Math.floor(width / 10),
-                Math.floor(height / 10),
-                quokka,
-                'jpg',
-                path.join(__dirname, '..', 'public', 'previews', `${previewKey}.jpg`),
-            );
-            previews[previewKey] = `require('~/public/previews/${previewKey}.jpg')`;
+            const url = `${site}/${Math.floor(width / 10)}/${Math.floor(height / 10)}/${quokka}.jpg`;
+            // console.log({ url });
+            axios
+                .get(url, {
+                    responseType: 'arraybuffer',
+                    headers: {
+                        'Content-type': `image/jpg`,
+                    },
+                })
+                .then((response) => {
+                    previews[previewKey] = `data:image/jpeg;base64,${Buffer.from(response.data, 'binary').toString(
+                        'base64',
+                    )}`;
+                    console.log({ previews });
+                });
         }
     });
 });
