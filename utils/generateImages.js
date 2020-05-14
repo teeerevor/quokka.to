@@ -65,7 +65,6 @@ Object.keys(sizeMap).forEach((sizeKey) => {
         }
     });
 });
-console.log(previews);
 
 // aimee: require('~/public/inline/aimee.jpg?inline'),
 // barry: require('~/public/inline/barry.jpg?inline'),

@@ -4,9 +4,10 @@
 
 [context.branch-deploy.environment]
   NODE_ENV = "development"
+  quokkaFunctionUrl = "http://localhost:34567/.netlify/functions/quokka-fetch/"
 
 [[headers]]
-  for = "/:width/*"
+  for = "/*"
   [headers.values]
     cache-control = '''
     public, 
@@ -19,6 +20,6 @@
   status = 200
 
 [[redirects]]
-  from = "/:width/*"
-  to = "/.netlify/functions/quokka-fetch"
+  from = "/*"
+  to = "/.netlify/functions/quokka-fetch/:splat"
   status = 200
