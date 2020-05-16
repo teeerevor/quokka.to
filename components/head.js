@@ -17,5 +17,8 @@ export default ({ title, desc, image }) => (
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://quok.in" />
         <meta property="og:image" content={image || 'https://quok.in/250/250/suzy'} />
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="mask-icon" href="icon.svg" color="#EAAE76" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     </Head>
 );
