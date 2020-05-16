@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import styled from 'styled-components';
 import { Link } from 'rebass/styled-components';
 import Grid from '~/components/grid';
@@ -7,6 +6,7 @@ import DisplayLink from '~/components/displayLink';
 import { quokkaUrl } from '~/utils/urlHelpers';
 import homeQuokkas from '~/data/homeQuokkas';
 import ImageItem from '~/components/imageItem';
+import Head from '~/components/head';
 
 const InfoPanel = styled.div`
     background: white;
@@ -44,10 +44,7 @@ const Example = ({ url, heading, meet }) => (
 
 const HomePage = () => (
     <>
-        <Head>
-            <title>Quokkas | All sizes</title>
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
+        <Head />
         <Home>
             <Grid>
                 <Card>
@@ -58,7 +55,6 @@ const HomePage = () => (
                 {homeQuokkas.map((quokka) => (
                     <ImageItem key={Math.random() * 1000} {...quokka} />
                 ))}
-                {/* <QuokkaFiller /> */}
             </Grid>
             <InfoPanel>
                 <h2>Options</h2>

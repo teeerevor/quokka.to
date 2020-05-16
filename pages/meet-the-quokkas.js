@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Box, Text, Flex, Link } from 'rebass';
 import quokkas from '~/functions/quokka-fetch/quokkas';
 import { quokkaUrl } from '~/utils/urlHelpers';
+import Head from '~/components/head';
 
 const Grid = styled.div`
     display: grid;
@@ -80,6 +81,7 @@ const GridItem = styled.div`
 
 export default () => (
     <>
+        <Head title="Meet the Quokkas" desc="All the quokkas in the one place" image="http://quok.in/250/250/duo" />
         <Flex alignItems="center">
             <Heading>Meet the quokkas</Heading>
             <HomeLink href="/">Home</HomeLink>
