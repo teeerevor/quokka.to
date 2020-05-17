@@ -3,6 +3,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '~/components/globalStyles';
 import theme from '~/theme';
+import FullStory from '~/fullStory';
 
 export default class MyApp extends App {
     render() {
@@ -11,6 +12,7 @@ export default class MyApp extends App {
             <ThemeProvider theme={theme}>
                 <GlobalStyles />
                 <Component {...pageProps} />
+                <FullStory />
             </ThemeProvider>
         );
     }
