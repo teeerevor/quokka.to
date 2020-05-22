@@ -1,8 +1,12 @@
+import queryString from 'query-string';
+
 const isProduction = process.env.NODE_ENV === 'production';
 
 /*eslint-disable */
-export default () =>
-    isProduction ? (
+export default () => {
+    if (typeof window === 'undefined' || !isProduction) return null;
+    const query = window ? queryString.parse(window.location.search) : {};
+    return query.unseen ? null : (
         <script
             dangerouslySetInnerHTML={{
                 __html: `
@@ -30,5 +34,6 @@ export default () =>
                 `,
             }}
         />
-    ) : null;
+    );
+};
 /* eslint-enable */
