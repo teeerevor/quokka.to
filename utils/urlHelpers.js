@@ -1,6 +1,6 @@
 export const baseUrl =
     process.env.NODE_ENV === 'development'
-        ? 'http://localhost:34567/.netlify/functions/quokka-fetch/'
+        ? 'http://localhost:8888/.netlify/functions/quokka-fetch/'
         : 'https://quok.in';
 const webp = () =>
     process.browser ? document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0 : false;

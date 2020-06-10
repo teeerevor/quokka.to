@@ -20,6 +20,20 @@ export default createGlobalStyle`
     --size14: 987px;
     --size15: 1597px;
     --size16: 2584px;
+    --darkblue: #002F8B;
+}
+
+a {
+    color: var(--darkblue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--darkblue)
 }
 
 body {

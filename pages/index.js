@@ -51,6 +51,9 @@ const HomePage = () => (
                     <h1>Quokkas</h1>
                     <p>All shapes and sizes</p>
                     <DisplayLink href={quokkaUrl({ width: 200, height: 300 })}>https://quok.in/200/300</DisplayLink>
+                    <Link variant="block" mt="7" href="/meet-the-quokkas">
+                        Meet the Quokkas
+                    </Link>
                 </Card>
                 {homeQuokkas.map((quokka) => (
                     <ImageItem key={Math.random() * 1000} {...quokka} />
