@@ -65,18 +65,3 @@ Object.keys(sizeMap).forEach((sizeKey) => {
         }
     });
 });
-
-// aimee: require('~/public/inline/aimee.jpg?inline'),
-// barry: require('~/public/inline/barry.jpg?inline'),
-// duoTall: require('~/public/inline/duoTall.jpg?inline'),
-// duo: require('~/public/inline/duo.jpg?inline'),
-// ivy: require('~/public/inline/ivy.jpg?inline'),
-// jason: require('~/public/inline/jason.jpg?inline'),
-// gregor: require('~/public/inline/gregor.jpg?inline'),
-// mark: require('~/public/inline/mark.jpg?inline'),
-// oli: require('~/public/inline/oli.jpg?inline'),
-// simon: require('~/public/inline/simon.jpg?inline'),
-// suzy: require('~/public/inline/suzy.jpg?inline'),
-// thomas: require('~/public/inline/thomas.jpg?inline'),
-// trio: require('~/public/inline/trio.jpg?inline'),
-// };

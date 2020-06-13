@@ -13,4 +13,5 @@ export const sizeMap = {
     large: { width: 1157, height: 930, quokkaNames: med },
     tall: { width: 726, height: 1210, quokkaNames: tall },
     wide: { width: 1016, height: 377, quokkaNames: wide },
+    meet: { width: 500, height: 500, quokkaNames: quokkaKeys },
 };
