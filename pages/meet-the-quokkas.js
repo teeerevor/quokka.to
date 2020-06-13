@@ -3,6 +3,8 @@ import { Box, Text, Flex, Link } from 'rebass';
 import quokkas from '~/functions/quokka-fetch/quokkas';
 import { quokkaUrl } from '~/utils/urlHelpers';
 import Head from '~/components/head';
+import ProgressiveImage from '~/components/progressiveImage';
+import quokkaPreviewsMap from '~/data/quokkaPreviews';
 
 const Grid = styled.div`
     display: grid;
@@ -44,6 +46,9 @@ const QuokkaLink = styled(Link).attrs({ color: 'white', mt: 2 })`
     & :hover {
         text-decoration: underline;
     }
+    & :visited {
+        color: white;
+    }
 `;
 
 const Card = styled(Box).attrs({ p: 4, pl: 5 })`
@@ -67,6 +72,7 @@ const GridItem = styled.div`
         width: 100%;
         height: auto;
         margin-bottom: -4px;
+        transition: all 0.2s ease-in;
     }
 
     & :hover {
@@ -89,13 +95,12 @@ export default () => (
         <Grid>
             {Object.keys(quokkas).map((key) => {
                 const { url } = quokkas[key];
+                const src = quokkaUrl({ width: 500, name: key });
+                const alt = ['duo', 'trio'].includes(key) ? `a ${key} of quokkas` : `${key} the quokka`;
+                const preview = quokkaPreviewsMap[`${key}-meet`];
                 return (
                     <GridItem>
-                        <img
-                            src={quokkaUrl({ width: 500, name: key })}
-                            alt={['duo', 'trio'].includes(key) ? `a ${key} of quokkas` : `${key} the quokka`}
-                            loading="lazy"
-                        />
+                        <ProgressiveImage src={src} alt={alt} preview={preview} />
                         <Card>
                             <Name>{key}</Name>
                             <QuokkaLink href={url}>{key} original</QuokkaLink>

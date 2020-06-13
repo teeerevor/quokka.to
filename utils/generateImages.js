@@ -45,7 +45,7 @@ Object.keys(sizeMap).forEach((sizeKey) => {
         formats.forEach((format) => {
             generateImage(width, height, quokka, format);
         });
-        if (['medium', 'tall', 'wide'].includes(sizeKey)) {
+        if (['medium', 'tall', 'wide', 'meet'].includes(sizeKey)) {
             const previewKey = `${quokka}-${sizeKey}`;
             const url = `${site}/${Math.floor(width / 10)}/${Math.floor(height / 10)}/${quokka}.jpg`;
             // console.log({ url });
