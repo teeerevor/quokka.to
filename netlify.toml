@@ -7,7 +7,7 @@
   quokkaFunctionUrl = "http://localhost:34567/.netlify/functions/quokka-fetch/"
 
 [[headers]]
-  for = "/*"
+  for = "/public"
   [headers.values]
     cache-control = '''
     public, 
