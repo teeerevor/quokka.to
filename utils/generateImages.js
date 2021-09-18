@@ -5,7 +5,7 @@ import path from 'path';
 import { sizeMap } from '../data/sizes';
 
 const formats = ['jpg', 'webp'];
-const site = 'http://quok.in';
+const site = 'http://quokka.to';
 // const site = 'http://localhost:8888';
 
 const storeImage = (url, filePath, format) => {

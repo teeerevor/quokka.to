@@ -7,6 +7,7 @@ import { quokkaUrl } from '~/utils/urlHelpers';
 import homeQuokkas from '~/data/homeQuokkas';
 import ImageItem from '~/components/imageItem';
 import Head from '~/components/head';
+import Example from '~/components/example';
 
 const InfoPanel = styled.div`
     background: white;
@@ -20,28 +21,6 @@ const Home = styled.div`
     position: relative;
 `;
 
-const Cell = styled.td`
-    padding: var(--size7);
-    text-align: ${({ right }) => (right ? 'right' : 'center')};
-`;
-
-const Example = ({ url, heading, meet }) => (
-    <tr>
-        <Cell right>
-            <img src={url} alt={`${heading} Quokka`} loading="lazy" />
-        </Cell>
-        <Cell>
-            <h4>{heading}</h4>
-            <DisplayLink href={url}>{url}</DisplayLink>
-            {meet && (
-                <Link variant="block" mt="6" href="/meet-the-quokkas">
-                    Meet the Quokkas
-                </Link>
-            )}
-        </Cell>
-    </tr>
-);
-
 const HomePage = () => (
     <>
         <Head />
@@ -50,7 +29,7 @@ const HomePage = () => (
                 <Card>
                     <h1>Quokkas</h1>
                     <p>All shapes and sizes</p>
-                    <DisplayLink href={quokkaUrl({ width: 200, height: 300 })}>https://quok.in/200/300</DisplayLink>
+                    <DisplayLink href={quokkaUrl({ width: 200, height: 300 })}>https://quokka.to/200/300</DisplayLink>
                     <Link variant="block" mt="7" href="/meet-the-quokkas">
                         Meet the Quokkas
                     </Link>
