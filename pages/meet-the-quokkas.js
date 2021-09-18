@@ -3,7 +3,7 @@ import { Box, Text, Flex, Link } from 'rebass';
 import quokkas from '~/functions/quokka-fetch/quokkas';
 import { quokkaUrl } from '~/utils/urlHelpers';
 import Head from '~/components/head';
-import ProgressiveImage from '~/components/progressiveImage';
+import ProgressiveImage from '~/components/image/progressiveImage';
 import quokkaPreviewsMap from '~/data/quokkaPreviews';
 
 const Grid = styled.div`

@@ -5,7 +5,7 @@ import Card from '~/components/card';
 import DisplayLink from '~/components/displayLink';
 import { quokkaUrl } from '~/utils/urlHelpers';
 import homeQuokkas from '~/data/homeQuokkas';
-import ImageItem from '~/components/imageItem';
+import Image from '~/components/image';
 import Head from '~/components/head';
 import Example from '~/components/example';
 
@@ -35,7 +35,7 @@ const HomePage = () => (
                     </Link>
                 </Card>
                 {homeQuokkas.map((quokka) => (
-                    <ImageItem key={Math.random() * 1000} {...quokka} />
+                    <Image key={Math.random() * 1000} {...quokka} />
                 ))}
             </Grid>
             <InfoPanel>

@@ -2,7 +2,7 @@ import { quokkaUrl } from '~/utils/urlHelpers';
 import { sizeMap } from '~/data/sizes';
 import quokkaPreviewsMap from '~/data/quokkaPreviews';
 import ProgressiveImage from './progressiveImage';
-import Image from './styledImage';
+import StyledImage from './styledImage';
 import { Medium, Tall, Large, Small, Wide } from '~/components/gridItems';
 
 export const componentMap = {
@@ -13,17 +13,19 @@ export const componentMap = {
     wide: Wide,
 };
 
-export default ({ variant, name, display }) => {
+const Image = ({ variant, name, display }) => {
     const { width, height, g, quokkaNames } = sizeMap[variant] || {};
-    const Component = componentMap[variant];
+    const GridWrapper = componentMap[variant];
     const quokkaName = name || quokkaNames[Math.floor(Math.random() * quokkaNames.length)];
     const alt = `a quokkaName named ${quokkaName}`;
-    const preview = quokkaPreviewsMap[`${quokkaName}-${variant}`];
-    const ImageComponent = preview ? ProgressiveImage : Image;
+    const preview = quokkaPreviewsMap[`${quokkaName}${variant.match(/small|medium|large/) ? '' : `-${variant}`}`];
+    const ImageComponent = preview ? ProgressiveImage : StyledImage;
     const src = quokkaUrl({ width, height, g, name: quokkaName });
     return (
-        <Component sx={{ display }}>
+        <GridWrapper sx={{ display }}>
             <ImageComponent src={src} alt={alt} preview={preview || null} />
-        </Component>
+        </GridWrapper>
     );
 };
+
+export default Image;
