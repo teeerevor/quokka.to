@@ -87,7 +87,7 @@ const GridItem = styled.div`
 
 export default () => (
     <>
-        <Head title="Meet the Quokkas" desc="All the quokkas in the one place" image="http://quok.in/250/250/duo" />
+        <Head title="Meet the Quokkas" desc="All the quokkas in the one place" image="http://quokka.to/250/250/duo" />
         <Flex alignItems="center">
             <Heading>Meet the quokkas</Heading>
             <HomeLink href="/">Home</HomeLink>

@@ -27,9 +27,6 @@ const storeImage = (url, filePath, format) => {
         });
 };
 
-// const url = `https://quok.in/${width}/${height}/${key}`;
-// `../public/${width}/${height}/${key}.jpg`;
-
 const previews = {};
 
 const generateImage = (width, height, name, format, filePath) => {

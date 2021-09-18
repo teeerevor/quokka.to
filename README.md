@@ -1,4 +1,4 @@
-# quok.in
+# quokka.to
 
 Quokka placeholder site
 
