@@ -13,6 +13,4 @@ const Link = styled.a`
     }
 `;
 
-export const DisplayLink = ({ children, color = 'caribbeanCurrent', background = 'aliceBlue', ...props }) => (
-    <Link {...props}>{children}</Link>
-);
+export const DisplayLink = ({ children, ...props }) => <Link {...props}>{children}</Link>;
