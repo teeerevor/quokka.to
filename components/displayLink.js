@@ -1,14 +1,21 @@
+import { Box } from 'rebass';
 import styled from 'styled-components';
 
-export default styled.a`
-    background-color: rgba(0, 0, 0, 0.08);
+const Link = styled.a`
     padding: var(--size6);
     border-radius: 2px;
     display: block;
-    color: #002f8b;
+    background-color: var(--lightgrey);
+    color: 'caribbeanCurrent';
     text-decoration: none;
 
     &:hover {
         text-decoration: underline;
     }
 `;
+
+const DisplayLink = ({ children, color = 'caribbeanCurrent', background = 'aliceBlue', ...props }) => (
+    <Link {...props}>{children}</Link>
+);
+
+export default DisplayLink;

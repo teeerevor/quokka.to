@@ -21,10 +21,12 @@ export default createGlobalStyle`
     --size15: 1597px;
     --size16: 2584px;
     --darkblue: #002F8B;
+    --darkgreen: #006D77;
+    --lightgrey: #EDF6F9;
 }
 
 a {
-    color: var(--darkblue);
+    color: var(--darkgreen);
     text-decoration: none;
 }
 
@@ -33,7 +35,7 @@ a:hover {
 }
 
 a:visited {
-    color: var(--darkblue)
+    color: var(--darkgreen)
 }
 
 body {

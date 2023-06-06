@@ -4,6 +4,8 @@ const theme = {
     fontSizes: [8, 13, 21, 34, 55, 89, 144, 233, 377],
     colors: {
         rottnestBlue: '#002F8B',
+        aliceBlue: '#EDF6F9',
+        caribbeanCurrent: '#006D77',
     },
     link: {
         color: '#002F8B',

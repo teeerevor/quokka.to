@@ -8,6 +8,7 @@ import homeQuokkas from '~/data/homeQuokkas';
 import Image from '~/components/image';
 import Head from '~/components/head';
 import Example from '~/components/example';
+import QuokkaSvg from '../components/quokkasSvg';
 
 const InfoPanel = styled.div`
     background: white;
@@ -21,15 +22,26 @@ const Home = styled.div`
     position: relative;
 `;
 
+const HiddenH1 = styled.h1`
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+`;
+
 const HomePage = () => (
     <>
         <Head />
         <Home>
             <Grid>
                 <Card>
-                    <h1>Quokkas</h1>
+                    <HiddenH1>Quokkas</HiddenH1>
+                    <QuokkaSvg color="#36333a" />
                     <p>All shapes and sizes</p>
-                    <DisplayLink href={quokkaUrl({ width: 200, height: 300 })}>https://quokka.to/200/300</DisplayLink>
+                    <DisplayLink href={quokkaUrl({ width: 550, height: 450 })}>https://quokka.to/550/450</DisplayLink>
                     <Link variant="block" mt="7" href="/meet-the-quokkas">
                         Meet the Quokkas
                     </Link>
