@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'rebass/styled-components';
-import Grid from '~/components/grid';
-import Card from '~/components/card';
-import DisplayLink from '~/components/displayLink';
-import { quokkaUrl } from '~/utils/urlHelpers';
-import homeQuokkas from '~/data/homeQuokkas';
-import Image from '~/components/image';
-import Head from '~/components/head';
-import Example from '~/components/example';
-import QuokkaSvg from '../components/quokkasSvg';
+import { Grid } from '../components/grid';
+import { Card } from '../components/card';
+import { DisplayLink } from '../components/displayLink';
+import { Image } from '../components/image';
+import { QuokkaHead as Head } from '../components/head';
+import { Example } from '../components/example';
+import { QuokkaSvg } from '../components/quokkasSvg';
+import { quokkaUrl } from '../utils/urlHelpers';
+import homeQuokkas from '../data/homeQuokkas';
 
 const InfoPanel = styled.div`
     background: white;

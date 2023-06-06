@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import StyledImage from './styledImage';
+import { StyledImage } from './styledImage';
 
-const ProgressiveImage = ({ preview, src, alt, style }) => {
+export const ProgressiveImage = ({ preview, src, alt, style }) => {
     const [isLoading, setIsLoading] = useState(true);
     const loadingImage = useRef();
 
@@ -29,5 +29,3 @@ const ProgressiveImage = ({ preview, src, alt, style }) => {
         />
     );
 };
-
-export default ProgressiveImage;

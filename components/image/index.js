@@ -1,9 +1,9 @@
-import { quokkaUrl } from '~/utils/urlHelpers';
-import { sizeMap } from '~/data/sizes';
-import quokkaPreviewsMap from '~/data/quokkaPreviews';
-import ProgressiveImage from './progressiveImage';
-import StyledImage from './styledImage';
-import { Medium, Tall, Large, Small, Wide } from '~/components/gridItems';
+import { ProgressiveImage } from './progressiveImage';
+import { StyledImage } from './styledImage';
+import { Medium, Tall, Large, Small, Wide } from '../gridItems';
+import { quokkaUrl } from '../../utils/urlHelpers';
+import { sizeMap } from '../../data/sizes';
+import quokkaPreviewsMap from '../../data/quokkaPreviews';
 
 export const componentMap = {
     small: Small,
@@ -13,7 +13,7 @@ export const componentMap = {
     wide: Wide,
 };
 
-const Image = ({ variant, name, display }) => {
+export const Image = ({ variant, name, display }) => {
     const { width, height, g, quokkaNames } = sizeMap[variant] || {};
     const GridWrapper = componentMap[variant];
     const quokkaName = name || quokkaNames[Math.floor(Math.random() * quokkaNames.length)];
@@ -27,5 +27,3 @@ const Image = ({ variant, name, display }) => {
         </GridWrapper>
     );
 };
-
-export default Image;

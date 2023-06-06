@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.div`
+export const Card = styled.div`
     background-color: white;
     padding: var(--size8) var(--size7);
     border-radius: 2px;

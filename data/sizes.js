@@ -1,4 +1,4 @@
-import quokkas from '~/functions/quokka-fetch/quokkas';
+import quokkas from '../functions/quokka-fetch/quokkas';
 
 const quokkaKeys = Object.keys(quokkas);
 export const small = quokkaKeys.filter((key) => quokkas[key].small);

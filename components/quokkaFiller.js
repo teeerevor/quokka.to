@@ -1,6 +1,6 @@
-import Image from '~/components/image';
+import { Image } from './image';
 
-const QuokkaFiller = () => (
+export const QuokkaFiller = () => (
     <>
         {[...new Array(60)].map((quok, index) => {
             let size = Math.random() >= 0.4 ? 'medium' : 'small';
@@ -9,5 +9,3 @@ const QuokkaFiller = () => (
         })}
     </>
 );
-
-export default QuokkaFiller;

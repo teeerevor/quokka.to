@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const QuokkaHead = ({ title, desc, image }) => (
+export const QuokkaHead = ({ title, desc, image }) => (
     <Head>
         <title>{title ? `${title} | quokka.to` : 'Quokka Placeholder Images | All shapes and sizes | quokka.to'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -22,5 +22,3 @@ const QuokkaHead = ({ title, desc, image }) => (
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     </Head>
 );
-
-export default QuokkaHead;

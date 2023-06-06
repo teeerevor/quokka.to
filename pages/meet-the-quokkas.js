@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Box, Text, Flex, Link } from 'rebass';
-import quokkas from '~/functions/quokka-fetch/quokkas';
-import { quokkaUrl } from '~/utils/urlHelpers';
-import Head from '~/components/head';
-import ProgressiveImage from '~/components/image/progressiveImage';
-import quokkaPreviewsMap from '~/data/quokkaPreviews';
+import quokkas from '../functions/quokka-fetch/quokkas';
+import { QuokkaHead as Head } from '../components/head';
+import { ProgressiveImage } from '../components/image/progressiveImage';
+import { quokkaUrl } from '../utils/urlHelpers';
+import quokkaPreviewsMap from '../data/quokkaPreviews';
 
 const Grid = styled.div`
     display: grid;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.div`
+export const Grid = styled.div`
     margin: var(--size6);
     display: grid;
     grid-gap: var(--size6);

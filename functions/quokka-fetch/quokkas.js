@@ -27,8 +27,7 @@ const quokkas = {
         src: 'v1584969287/5661728684332708_ibefii',
         maxWidth: 1536,
         maxHeight: 1542,
-        url:
-            'https://www.watson.ch/u/zoom?url=%2Fimgdb%2Fd211%2FQx%2CB%2C0%2C0%2C721%2C724%2C300%2C301%2C120%2C120%2F5661728684332708&source=Bild%3A%20Imgur&caption=',
+        url: 'https://www.watson.ch/u/zoom?url=%2Fimgdb%2Fd211%2FQx%2CB%2C0%2C0%2C721%2C724%2C300%2C301%2C120%2C120%2F5661728684332708&source=Bild%3A%20Imgur&caption=',
         tall: true,
         small: true,
     },

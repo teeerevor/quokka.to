@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'rebass/styled-components';
-import DisplayLink from '~/components/displayLink';
+import { DisplayLink } from './displayLink';
 
 const Cell = styled.td`
     padding: var(--size7);
     text-align: ${({ right }) => (right ? 'right' : 'center')};
 `;
 
-const Example = ({ url, heading, meet }) => (
+export const Example = ({ url, heading, meet }) => (
     <tr>
         <Cell right>
             <img src={url} alt={`${heading} Quokka`} loading="lazy" />
@@ -23,5 +23,3 @@ const Example = ({ url, heading, meet }) => (
         </Cell>
     </tr>
 );
-
-export default Example;
