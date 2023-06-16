@@ -41,6 +41,10 @@ const HomePage = () => (
                     <HiddenH1>Quokkas</HiddenH1>
                     <QuokkaSvg color="#36333a" />
                     <p>All shapes and sizes</p>
+                    <p>
+                        Do you love these adorable marsupials? Use <a href="http://quokka.to">quokka.to</a> for all your
+                        quokka-d placeholder image needs.
+                    </p>
                     <DisplayLink href={quokkaUrl({ width: 550, height: 450 })}>https://quokka.to/550/450</DisplayLink>
                     <Link variant="block" mt="7" href="/meet-the-quokkas">
                         Meet the Quokkas
