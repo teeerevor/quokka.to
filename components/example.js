@@ -13,7 +13,7 @@ export const Example = ({ url, heading, meet }) => (
             <img src={url} alt={`${heading} Quokka`} loading="lazy" />
         </Cell>
         <Cell>
-            <h4>{heading}</h4>
+            <h3>{heading}</h3>
             <DisplayLink href={url}>{url}</DisplayLink>
             {meet && (
                 <Link variant="block" mt="6" href="/meet-the-quokkas">
