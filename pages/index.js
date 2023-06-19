@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'rebass/styled-components';
+import { Link as ScrollLink, Element } from 'react-scroll';
 import { Grid } from '../components/grid';
 import { Card } from '../components/card';
 import { DisplayLink } from '../components/displayLink';
@@ -32,6 +33,13 @@ const HiddenH1 = styled.h1`
     width: 1px;
 `;
 
+const LinkBlock = styled.div`
+    display: flex;
+    gap: 16px;
+    margin-top: 64px;
+    flex-direction: column;
+`;
+
 const HomePage = () => (
     <>
         <Head />
@@ -42,20 +50,26 @@ const HomePage = () => (
                     <QuokkaSvg color="#36333a" />
                     <p>All shapes and sizes</p>
                     <p>
-                        Do you love these adorable marsupials? Use <a href="http://quokka.to">quokka.to</a> for all your
-                        quokka-d placeholder image needs.
+                        Do you love adorable marsupials? Use <a href="http://quokka.to">quokka.to</a> for all your
+                        quokka-d placeholder needs.
                     </p>
                     <DisplayLink href={quokkaUrl({ width: 550, height: 450 })}>https://quokka.to/550/450</DisplayLink>
-                    <Link variant="block" mt="7" href="/meet-the-quokkas">
-                        Meet the Quokkas
-                    </Link>
+                    <LinkBlock>
+                        <ScrollLink activeClass="active" to="options" smooth duration={500}>
+                            More options
+                        </ScrollLink>
+                        <Link href="/meet-the-quokkas">Meet the Quokkas</Link>
+                        <Link href="mailto:hi@trev.io">Get in touch</Link>
+                    </LinkBlock>
                 </Card>
                 {homeQuokkas.map((quokka) => (
                     <Image key={Math.random() * 1000} {...quokka} />
                 ))}
             </Grid>
             <InfoPanel>
-                <h2>Options</h2>
+                <Element name="options">
+                    <h2>Options</h2>
+                </Element>
                 <table>
                     <tbody>
                         <Example heading="Square" url={quokkaUrl({ width: 233 })} />

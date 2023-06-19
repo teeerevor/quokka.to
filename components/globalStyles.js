@@ -25,18 +25,19 @@ export default createGlobalStyle`
     --lightgrey: #EDF6F9;
 }
 
-a {
+a, a[href^="mailto:"] {
     color: var(--darkgreen);
     text-decoration: none;
 }
 
-a:hover {
+a:hover, a[href^="mailto:"]:hover {
     text-decoration: underline;
 }
 
 a:visited {
     color: var(--darkgreen)
 }
+
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,

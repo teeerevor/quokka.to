@@ -17,8 +17,9 @@ export const QuokkaHead = ({ title, desc, image }) => (
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://quokka.to" />
         <meta property="og:image" content={image || 'https://quokka.to/250/250/suzy'} />
-        <link rel="icon" type="image/png" href="favicon.png" />
         <link rel="mask-icon" href="icon.svg" color="#EAAE76" />
-        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     </Head>
 );
