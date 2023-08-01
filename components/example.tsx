@@ -1,13 +1,20 @@
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'rebass/styled-components';
 import { DisplayLink } from './displayLink';
 
-const Cell = styled.td`
+const Cell = styled.td<{ right?: boolean }>`
     padding: var(--size7);
     text-align: ${({ right }) => (right ? 'right' : 'center')};
 `;
 
-export const Example = ({ url, heading, meet }) => (
+type Example = {
+    url: string;
+    heading: string;
+    meet?: boolean;
+};
+
+export const Example = ({ url, heading, meet }: Example) => (
     <tr>
         <Cell right>
             <img src={url} alt={`${heading} Quokka`} loading="lazy" />
