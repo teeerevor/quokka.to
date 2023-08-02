@@ -3,7 +3,13 @@
         "browser": true,
         "node": true
     },
-    "extends": ["airbnb", "prettier"],
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+        "airbnb",
+        "prettier",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "parser": "@babel/eslint-parser",
     "rules": {
         "object-shorthand": [2, "properties"],
@@ -21,7 +27,7 @@
         "no-bitwise": [2, { "allow": ["~"] }],
         "comma-dangle": ["error", "always-multiline"],
         "import/extensions": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/jsx-one-expression-per-line": 0,
         "react/jsx-indent": [1, 4],
         "react/jsx-indent-props": [1, 4],

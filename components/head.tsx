@@ -1,5 +1,11 @@
 import Head from 'next/head';
 
+type HeadProps = {
+    title?: string;
+    desc?: string;
+    image?: string;
+};
+
 export const QuokkaHead = ({ title, desc, image }) => (
     <Head>
         <title>{title ? `${title} | quokka.to` : 'Quokka Placeholder Images | All shapes and sizes | quokka.to'}</title>
